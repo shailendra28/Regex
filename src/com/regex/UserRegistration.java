@@ -36,7 +36,7 @@ public class UserRegistration {
         public void checkEmail() {
              System.out.println("enter a valid email(Eg. abc.xyz@bl.co.in) : ");
              email = sc.nextLine();
-             //check whether the enter Email valid or not
+             //check for all Email valid or not
              check = Pattern.compile("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]{2,}+)*$").matcher(email).matches();
              if (!check) {
             System.out.println(" email is invalid ");
