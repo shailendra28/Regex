@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 /**
  * Program for UserRegistration
- * Validate firstName,lastName, email,phoneNumber,password,uppercase Using regex concept
+ * Validate firstName,lastName, email,phoneNumber,password(uppercase,NumericNumber) Using regex concept
  */
 public class UserRegistration {
     private boolean check;
@@ -60,10 +60,10 @@ public class UserRegistration {
         }
     }
     public void checkPassword() {
-        System.out.println("Enter password min of 8 and atleast 1 uppercase character): ");
+        System.out.println("Enter  password min of 8 and at least 1 uppercase character and at least 1 number): ");
         password = sc.nextLine();
-        //check whether the enter password valid or not and atleast 1 uppercase character
-        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z]){8,}.*$").matcher(password).matches();
+        //check whether the enter  password min of 8 and at least 1 uppercase character and at least 1 number
+        check = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]){8,}.*$").matcher(password).matches();
         if (!check) {
             System.out.println(" password invalid ");
             checkPassword();
