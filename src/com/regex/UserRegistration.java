@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 /**
  * Program for UserRegistration
- * Validate firstName,lastName, email,phoneNumber,password Using regex concept
+ * Validate firstName,lastName, email,phoneNumber,password,uppercase Using regex concept
  */
 public class UserRegistration {
     private boolean check;
