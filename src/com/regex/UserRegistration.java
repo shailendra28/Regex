@@ -3,11 +3,11 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 /**
  * Program for UserRegistration
- * Validate first Name Using regex concept
+ * Validate firstName,lastName, email,phoneNumber,password Using regex concept
  */
 public class UserRegistration {
     private boolean check;
-    private String firstName,lastName, email,phoneNumber;
+    private String firstName,lastName, email,phoneNumber,password;
     Scanner sc = new Scanner(System.in);
     public void checkFirstName() {
         System.out.println("enter first name starts with capital with minimum Three character : ");
@@ -59,6 +59,20 @@ public class UserRegistration {
             System.out.println(" phone number is valid ");
         }
     }
+    public void checkPassword() {
+        System.out.println("enter password(8 to 10 character): ");
+        password = sc.nextLine();
+        //check whether the enter password valid or not
+        check = Pattern.compile("^[a-z]{8,}$").matcher(password).matches();
+        if (!check) {
+            System.out.println(" password invalid ");
+            checkPassword();
+        }
+        else {
+            System.out.println(" password valid ");
+        }
+    }
+
     //Declare Main Class
     public static void main(String args[]) {
         UserRegistration user = new UserRegistration();
@@ -66,5 +80,6 @@ public class UserRegistration {
         user.checkLastName();//Calling checkLastName
         user.checkEmail();//Calling checkEmail
         user.checkPhoneNumber();//Calling checkPhoneNumber
+        user.checkPassword();//Calling checkPassword
     }
 }
