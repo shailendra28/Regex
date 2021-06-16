@@ -1,5 +1,6 @@
 package com.regex;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 /**
  * Program for UserRegistration
@@ -130,5 +131,38 @@ public class ValidateUser {
             return "Happy";
         else
             return "Sad";
+    }
+    /**
+     * This is Main Method
+     *.
+     */
+    public static void main(String[] args) {
+        ArrayList<String> emails = new ArrayList<String>();
+        emails.add("abc@yahoo.com");
+        emails.add("abc-100@yahoo.com");
+        emails.add("abc.100@yahoo.com");
+        emails.add("abc111@abc.com");
+        emails.add("abc-100@abc.com.net");
+        emails.add("abc.100@abc.com.au");
+        emails.add("abc@1.com");
+        emails.add("abc@gmail.com.com");
+        emails.add("abc+100@gmail.com");
+        emails.add("abc");
+        emails.add("abc@.com.my");
+        emails.add("abc123@gmail.a");
+        emails.add("abc123@.com");
+        emails.add("abc123@.com.com");
+        emailvalidation(emails);
+    }
+    /**
+     * This emailvalidation method will check the user emails according to pattern and return Valid
+     *.
+     */
+    private static void emailvalidation(ArrayList<String> emails) {
+        String emailPattern = "[0-9 a-z A-z]+([._+-][0-9 a-z A-Z]+)*\"+\"@([0-9 a-z A-Z][-]?)+[.][a-z A-Z]{2,4}([.][a-z A-Z]{2,4})?$";
+        for (String data : emails) {
+            if (Pattern.matches(emailPattern, data)) ;
+            System.out.println("Valid");
+        }
     }
 }

@@ -144,7 +144,7 @@ public class ValidateUserTest {
     @Test
     public void givenPassword_WhenNotProper_ShouldReturnSad() {
         ValidateUser validator = new ValidateUser();
-        String result = ValidateUser.validatPassword("A6@tr59k");
+        String result = ValidateUser.validatPassword("bb@tr699k");
         Assertions.assertEquals("Sad", result);
     }
 }
