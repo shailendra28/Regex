@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  */
 public class UserRegistration {
     private boolean check;
-    private String firstName,lastName;
+    private String firstName,lastName, email;
     Scanner sc = new Scanner(System.in);
     public void checkFirstName() {
         System.out.println("enter first name starts with capital with minimum Three character : ");
@@ -33,11 +33,24 @@ public class UserRegistration {
             else
                 System.out.println(" last name is valid ");
         }
-
+        public void checkEmail() {
+             System.out.println("enter a valid email(Eg. abc.xyz@bl.co.in) : ");
+             email = sc.nextLine();
+             //check whether the enter Email valid or not
+             check = Pattern.compile("^[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]{2,}+)*$").matcher(email).matches();
+             if (!check) {
+            System.out.println(" email is invalid ");
+            checkEmail();
+        }
+        else {
+            System.out.println(" email is valid ");
+        }
+    }
     //Declare Main Class
     public static void main(String args[]) {
         UserRegistration user = new UserRegistration();
         user.checkFirstName();//Calling checkFirstName
         user.checkLastName();//Calling checkLastName
+        user.checkEmail();//Calling checkEmail
     }
 }
