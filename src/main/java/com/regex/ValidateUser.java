@@ -16,7 +16,7 @@ public class ValidateUser {
      * This validateFirstName method will check the user input according to the pattern.
      * throws ValidateUserException, NullPointerException
      */
-    public static boolean validateFirstName(String fname) throws ValidateUserException, NullPointerException {
+    Check validateFirstName = (String fname) -> {
         try {
             Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
             match = pattern.matcher(fname).matches();
@@ -29,12 +29,12 @@ public class ValidateUser {
         } catch (NullPointerException e) {
             throw new ValidateUserException(ValidateUserException.ExceptionType.ENTERED_NULL, "please enter proper name");
         }
-    }
+    };
     /**
      * This validateLastName method will check the user input according to the pattern.
      * throws ValidateUserException, NullPointerException
      */
-    public boolean validateLastName(String lname) throws ValidateUserException, NullPointerException {
+    Check validateLastName = (String lname) -> {
         try {
             Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
             boolean match = pattern.matcher(lname).matches();
@@ -48,12 +48,12 @@ public class ValidateUser {
             throw new ValidateUserException(ValidateUserException.ExceptionType.ENTERED_NULL, "Last name cannot be null");
         }
         return match;
-    }
+    };
     /**
      * This validateEmail method will check the user input according to the pattern.
      * throws ValidateUserException, NullPointerException
      */
-    public boolean validateEmail(String email) throws ValidateUserException, NullPointerException {
+    Check validateEmail = (String email) ->  {
         try {
             Pattern pattern = Pattern.compile(EMAIL_PATTERN);
             match = pattern.matcher(email).matches();
@@ -68,12 +68,12 @@ public class ValidateUser {
             throw new ValidateUserException(ValidateUserException.ExceptionType.ENTERED_NULL, "Email cannot be empty");
         }
         return match;
-    }
+    };
     /**
      * This validateMobNumber method will check the user input according to the pattern.
      * throws ValidateUserException, NullPointerException
      */
-    public boolean validateMobNumber(String mobnumber) throws ValidateUserException, NullPointerException {
+    Check validateMobNumber = (String mobnumber) -> {
         try {
             Pattern pattern = Pattern.compile(MOB_NUMBER);
             match = pattern.matcher(mobnumber).matches();
@@ -88,12 +88,12 @@ public class ValidateUser {
             throw new ValidateUserException(ValidateUserException.ExceptionType.ENTERED_NULL, "Number cannot be empty");
         }
         return match;
-    }
+    };
     /**
      * This validatePassword method will check the user input according to the pattern.
      * throws ValidateUserException, NullPointerException
      */
-    public boolean validatePassword(String password) throws ValidateUserException, NullPointerException {
+    Check validatePassword= (String password) ->{
         try {
             Pattern pattern = Pattern.compile(PASSWORD_RULE);
             match = pattern.matcher(password).matches();
@@ -108,6 +108,6 @@ public class ValidateUser {
             throw new ValidateUserException(ValidateUserException.ExceptionType.ENTERED_NULL, "Password cannot be null");
         }
         return match;
-    }
+    };
 }
 
