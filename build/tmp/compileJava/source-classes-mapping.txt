@@ -1,5 +1,7 @@
 com/regex/ValidateUserException.java
  com.regex.ValidateUserException
  com.regex.ValidateUserException$ExceptionType
+com/regex/Check.java
+ com.regex.Check
 com/regex/ValidateUser.java
  com.regex.ValidateUser
